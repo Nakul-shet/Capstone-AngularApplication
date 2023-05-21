@@ -1,0 +1,50 @@
+<div class="cart-empty" *ngIf="isCartEmpty()">
+    <h1>Your Cart is empty :(</h1>
+    <button routerLink="/medicine" class="btn btn-primary">Go to Medicine Page</button>
+</div>
+
+<div *ngIf="!isCartEmpty()">
+    <h3>Your Cart</h3>
+
+    <table class="table table-bordered table-striped text-center">
+        <thead>
+            <tr>
+                <th>Sl no</th>
+                <th>name</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th>price</th>
+                <th>quantity</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of items; index as i">
+                <td>{{item.id}}</td>
+                <td>{{item.name }}</td>
+                <td>
+                    <img width="50px" src={{item.image}}/>
+                </td>
+                <td>{{item.description}}</td>
+                <td>{{item.price | currency : "INR"}} / each</td>
+                <td>{{ item.quantity }}</td>
+                <td>
+                    <a class="btn btn-danger" (click)="removeItem(i)">Remove</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="checkout">
+        <h6 style="text-decoration: underline;">Cart Details</h6>
+        <b>Total Items : {{items.length}}</b> |
+        <b>Total Price : <mark>{{total | currency : "INR"}}</mark></b>
+        <br/>
+        <br/>
+        <a routerLink="/checkout" class="btn btn-success">CHECKOUT</a>
+    </div>
+    
+</div>
+
+
+

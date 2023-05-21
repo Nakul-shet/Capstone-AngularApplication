@@ -1,0 +1,16 @@
+<div class="container col-lg-6">
+    <h3>Add New Category</h3>
+    <form>
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" [(ngModel)]="itemToAdd.categoryName" class="form-control"/>
+        </div>
+        <br/>
+        <div class="form-group">
+            <label>Description</label>
+            <input type="text" name="price" [(ngModel)]="itemToAdd.categoryDescription" class="form-control"/>
+        </div>
+        <br/>
+        <button (click)="addcategory()" class="btn btn-primary">Add Item</button>
+    </form>
+</div>

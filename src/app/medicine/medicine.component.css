@@ -1,0 +1,52 @@
+h3.heading{
+    background-color: black;
+    text-align: center;
+    padding: 10px;
+    margin: 0px 350px;
+    margin-bottom: 20px;
+    border : 7px double white;
+    border-radius: 10px;
+    color: white;
+}
+
+.filter{
+    display: flex;
+    flex-direction: row;
+}
+
+.filter div{
+    margin: 0px 10px;
+}
+
+.modal-bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0.5, 0.5,0.5, 0.5);
+    transition: 0.3s ease-out;
+    visibility: visible;
+    opacity: 1;
+
+    z-index: 1;
+}
+
+.modal-container{
+    width: 500px;
+    height: auto;
+    background-color: white;
+    padding: 50px;
+    border-radius: 20px;
+    transition: 0.3s ease-out;
+}
+
+.close-btn{
+    position: absolute;
+    top: 80px;
+    right: 200px;
+}

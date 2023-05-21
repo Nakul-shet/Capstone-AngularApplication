@@ -1,0 +1,14 @@
+<div class="container">
+    <!-- <div class="row">
+        <div class="category-grid" *ngFor="let cat of category">
+            <h3 [routerLink]="['/categoryMedicine' , cat.categoryId , cat.categoryName]">{{cat.categoryName}}</h3>
+        </div> 
+    </div> -->
+
+    <div class="row">
+        <div *ngFor="let cat of category" class="category-grid col-lg-4">
+            <h3 [routerLink]="['/categoryMedicine' , cat.categoryId , cat.categoryName]">{{cat.categoryName}}</h3>
+        </div>
+    </div>
+
+</div>

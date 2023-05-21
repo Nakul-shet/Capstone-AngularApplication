@@ -1,0 +1,13 @@
+.category-grid{
+    background-color: #000000;
+    color: white;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.category-grid:hover{
+    background-color: red;
+}

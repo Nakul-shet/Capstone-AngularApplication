@@ -1,0 +1,40 @@
+<h3 class="heading">Medicine Catalog</h3>
+
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div *ngFor="let medicine of medicines" class="col">
+          <div class="card shadow-sm">
+            <img src={{medicine.medicineImage}} width="100%" height="225" role="img"/>
+            <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+            <div class="card-body">
+              <h5>{{medicine.medicineName}}</h5>
+              <h6>{{medicine.medicinePrice | currency : "INR"}}</h6>
+              <p class="card-text">{{medicine.medicineDescription.substring(0, 40)}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button class="btn btn-primary" (click)="viewDetails(medicine)">View</button>
+                  <button (click)="addtocart(medicine.medicineId)" type="button" class="btn btn-sm btn-warning">Add to Cart</button>
+                </div>
+                <small class="text-body-secondary">{{medicine.seller}}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="applyStyle == true" class="modal-bg" [ngClass]="{'modal-bg' : applyStyle}">
+  <div class="custom-modal">
+      <button class="close-btn btn btn-danger" (click)="handleStyleChange()">Close</button>
+      <div *ngIf="modalProduct.name != ''" class="modal-container">
+          <img width="300px" src={{modalProduct.image}}/>
+          <h3>{{modalProduct.name | uppercase}}</h3>
+          <br/>
+          <mark><strong>{{modalProduct.price | currency : 'INR'}}</strong></mark>
+          <br/>
+          <br/>
+          <p>{{modalProduct.details}}</p>
+      </div>
+  </div>
+</div>

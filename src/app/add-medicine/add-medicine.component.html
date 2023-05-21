@@ -1,0 +1,36 @@
+<div class="container col-lg-6">
+    <h3>Add New Medicine</h3>
+    <form>
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" [(ngModel)]="itemToadd.medicineName" class="form-control"/>
+        </div>
+        <br/>
+        <div class="form-group">
+            <label>Price</label>
+            <input type="text" name="price" [(ngModel)]="itemToadd.medicinePrice" class="form-control"/>
+        </div>
+        <br/>
+        <div class="form-group">
+            <label>Image</label>
+            <input type="text" name="image" [(ngModel)]="itemToadd.medicineImage" class="form-control"/>
+        </div>
+        <br/>
+        <div class="form-group">
+            <label>Description</label>
+            <input type="text" name="description" [(ngModel)]="itemToadd.medicineDescription" class="form-control"/>
+        </div>
+        <br/>
+        <div class="form-group">
+            <label>Seller</label>
+            <input type="text" name="seller" [(ngModel)]="itemToadd.medicineSeller" class="form-control"/>
+        </div>
+        <br/>
+        <div class="form-group">
+            <label>Category ID</label>
+            <input type="text" name="category" [(ngModel)]="itemToadd.medicineCategory" class="form-control"/>
+        </div>
+        <br/>
+        <button (click)="addItem()" class="btn btn-primary">Add Item</button>
+    </form>
+</div>

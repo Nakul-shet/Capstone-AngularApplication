@@ -1,0 +1,51 @@
+<div class="container search-container">
+    <img width="100px" src="https://cdn-icons-png.flaticon.com/512/647/647237.png"/>
+    <h2>Search For Medicine</h2>
+    <form>
+        <div class="form-group inputs">
+            <input type="search" class="form-control" name="searchitem" [(ngModel)]="searchItem" autofocus autocomplete="off"/>
+            <button class="btn btn-md btn-danger" (click)="handleSearch()">
+                Search
+            </button>
+        </div>
+    </form>
+</div>
+<br/>
+<div *ngIf="searchResult.length >= 1">
+    
+    <div class="album py-2 bg-body-tertiary">
+        <div class="container">
+        <h3>Search Results For : {{searchItem | uppercase}}</h3>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div *ngFor="let p of searchResult" class="col">
+                    <div class="card shadow-sm">
+                    <img class="bd-placeholder-img card-img-top" width="100%" height="250" src={{p.medicineImage}}  role="img" aria-label="Placeholder: Thumbnail" >
+                    <div class="card-body">
+                        <h5>{{p.medicineName | uppercase}}</h5>
+                        <h6>{{p.medicinePrice | currency : "INR"}}</h6>
+                        <p class="card-text">{{p.medicineDescription}}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                        <!-- <div *ngIf="isAdmin() != true && p.product_quantity > 0" class="btn-group">
+                            <button class="btn btn-light" (click)="viewDetails(p)">View</button>
+                            <button class="btn btn-warning" (click)="addToCart(p)">Add To Cart</button>
+                        </div> -->
+                        <!-- <div *ngIf="isAdmin() != true" class="btn-group">
+                            <button class="btn btn-light" (click)="viewDetails(p)">View</button>
+                            <button class="btn btn-warning" (click)="addToCart(p)">Add To Cart</button>
+                        </div> -->
+                        </div>
+                        <br/>
+                        <div *ngIf="p.product_added === true">
+                            <p class="added">Item Added to the Cart</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="noneMessage != ''">
+    <h2 style="color : red">{{noneMessage}}</h2>
+</div>

@@ -1,0 +1,42 @@
+<header class="p-3 text-bg-success">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+        <a routerLink="home" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none logo">
+          <img src="https://cdn-icons-png.flaticon.com/512/4006/4006511.png" class="bi me-2" width="40" height="40" role="img"/>
+          <h3>HealthFirst</h3>
+        </a>
+
+        <ul *ngIf="loggedIn() == 'user'" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a routerLink="medicine" class="nav-link px-2 text-white">Medicines</a></li>
+          <li><a routerLink="category" class="nav-link px-2 text-white">Category</a></li>
+          <li><a routerLink="search" class="nav-link px-2 text-white">Search</a></li>
+          <li><a routerLink="cart" class="nav-link px-2 text-white cart">
+            <i class="fa-solid fa-cart-shopping fa-2x"></i>
+          </a></li>
+        </ul>
+
+        <ul *ngIf="loggedIn() == 'admin'" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a routerLink="AdminDashboard" class="nav-link px-2 text-white">Manage Medicines</a></li>
+          <li><a routerLink="AdminCategory" class="nav-link px-2 text-white">Manage Category</a></li>
+          <li><a routerLink="users" class="nav-link px-2 text-white" aria-disabled="true">Users</a></li>
+        </ul>
+
+        <div *ngIf="loggedIn() == 'user' || loggedIn() == 'admin'" class="text-end">
+          <img style="position: absolute; right: 180px" width="40" height="40" src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png"/>
+          <button (click)="logout()" class="btn btn-danger me-2">Logout</button>
+        </div>
+
+        <div *ngIf="loggedIn() == ''" class="entry text-end">
+          <a routerLink="login" class="btn btn-primary me-2">Login</a>
+          <a routerLink="register" class="btn btn-warning">Sign-up</a>
+        </div>
+      </div>
+    </div>
+</header>
+
+  <div class="p-2 mb-4 bg-body-tertiary rounded-3">
+    <div class="container-fluid py-5">
+        <router-outlet></router-outlet>
+    </div>
+  </div>

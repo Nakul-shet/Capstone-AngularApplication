@@ -1,0 +1,17 @@
+.entry{
+    position: absolute;
+    right: 20px;
+}
+
+.cart{
+    position: absolute;
+    left: 50%;
+}
+
+.logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-right: 40px;
+}

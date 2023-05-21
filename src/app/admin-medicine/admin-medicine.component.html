@@ -1,0 +1,41 @@
+<div class="container">
+    <h3>Manage Medicine List</h3>
+    <a routerLink="/addMedicine" class="btn btn-primary">Add Medicine</a>
+    <br/>
+    <br/>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Seller</th>
+                <th>Description</th>
+                <th>Category ID</th>
+                <th>Remove</th>
+                <th>Modify</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let med of medicines">
+                <td>{{med.medicineId}}</td>
+                <td>{{med.medicineName}}</td>
+                <td>
+                    <img width="50px" src={{med.medicineImage}}/>
+                </td>
+                <td>{{med.medicinePrice | currency : "INR"}}</td>
+                <td>{{med.seller}}</td>
+                <td>{{med.medicineDescription}}</td>
+                <td>{{med.categoryId}}</td>
+                <td >
+                    <button type="button" (click)="removeItem(med.medicineId)" class="btn btn-danger btn-sm">Delete</button>
+                </td>
+                <td>
+                    <button [routerLink]="['/updateMedicine' , med.medicineId]" class="btn btn-warning btn-sm">Update</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>

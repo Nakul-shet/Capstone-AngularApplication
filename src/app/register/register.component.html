@@ -1,0 +1,89 @@
+<div class="container col-lg-6 col-sm-12 form-container">
+    <h3>User Registration</h3>
+    <br/>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+
+        <!--Name-->
+        <div class="form-group">
+            <input class="form-control" type="text" name="name" [(ngModel)]="userDetails.Name" formControlName="name" placeholder="Enter your Fullname" required autocomplete="off"/>
+            <div *ngIf="submitted && f['name'].errors">
+                <div class="text-danger" *ngIf="f['name'].errors['required']">
+                    Full Name is required and must be a valid name
+                </div>
+            </div>
+        </div>
+
+        <br/>
+
+        <!--UserName-->
+        <div class="form-group">
+            <input class="form-control" type="text" name="username" [(ngModel)]="userDetails.UserName" formControlName="username" placeholder="Enter your Username" required autocomplete="off"/>
+            <div *ngIf="submitted && f['username'].errors">
+                <div class="text-danger" *ngIf="f['username'].errors['required']">
+                    Username is required and must be a valid name
+                </div>
+            </div>
+        </div>
+
+        <br/>
+
+        <!--Email-->
+        <div class="form-group">
+            <input class="form-control" type="email" name="email" [(ngModel)]="userDetails.Email" formControlName="email" placeholder="Enter your Email" required email autocomplete="off"/>
+            <div *ngIf="submitted && f['email'].errors">
+                <div class="text-danger" *ngIf="f['email'].errors['required']">
+                   Email is Required
+                </div>
+                <div class="text-danger" *ngIf="f['email'].errors['email']">
+                    Enter a valid email address, e.g., john@example.com
+                </div>
+            </div>
+        </div>
+
+        <br/>
+
+        <!--Role-->
+        <div class="form-group">
+            <input class="form-control" type="text" name="role" [(ngModel)]="userDetails.Role" formControlName="role" placeholder="Enter your Role" required autocomplete="off"/>
+            <div *ngIf="submitted && f['role'].errors">
+                <div class="text-danger" *ngIf="f['role'].errors['required']">
+                    Usern Role required and must be a valid name
+                </div>
+            </div>
+        </div>
+
+        <br/>
+
+        <!--Password-->
+        <div class="form-group">
+            <input class="form-control" type="password" name="password" [(ngModel)]="userDetails.Passsword" formControlName="password" placeholder="Enter your Password" required autocomplete="off"/>
+            <div *ngIf="submitted && f['password'].errors">
+                <div class="text-danger" *ngIf="f['password'].errors['required']">
+                    Password is required
+                </div>
+                <!-- <div class="text-danger" *ngIf="f['password'].errors['minlength']">
+                    Minimum of 6 Charaters
+                </div> -->
+            </div>
+        </div>
+
+        <br/>
+
+        <!--Confirm Password-->
+        <div class="form-group">
+            <input class="form-control" type="password" name="confirmPassword" [(ngModel)]="userDetails.ConfirmPassword" formControlName="confirmPassword" placeholder="Confirm Password" required autocomplete="off"/>
+            <div *ngIf="submitted && f['confirmPassword'].errors">
+                <div class="text-danger" *ngIf="f['confirmPassword'].errors['required']">
+                    Confirm Password is required
+                </div>
+                <!-- <div class="text-danger" *ngIf="f['confirmPassword'].errors?.['passwordMatch']">
+                    Password Must Match.
+                </div> -->
+            </div>
+        </div>
+
+        <br>
+
+        <button type="submit" class="btn btn-md bg-primary text-white">Register</button>
+    </form>
+</div>
